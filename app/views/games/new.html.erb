@@ -1,0 +1,15 @@
+<h1>NEW GAME</h1>
+<h2>Your letters to choose from are:</h2>
+
+<p><% @letters.each do |letter| %>
+  <%= letter %>
+<% end %></p>
+
+<h1>Enter your longest word below:</h1>
+
+<form action="/score">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :grid, @letters %>
+  <input type="text" name="attempt">
+  <input type="submit" value="Play">
+</form>
